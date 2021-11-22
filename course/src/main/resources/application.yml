@@ -1,0 +1,46 @@
+server:
+  port: 8081
+
+spring: 
+  application:
+     name : course-service
+     
+  zipkin:
+    enabled: true
+
+  datasource: 
+    url : ${datasource.url}
+    username : ${datasource.username}
+    password : ${datasource.password}
+  jpa: 
+    properties:
+      hibernate:
+        dialect: ${datasource.dialect}
+        connection: 
+          characterEncoding: UTF-8
+          CharSet: UTF-8
+          useUnicode: true
+    show-sql: true 
+    hibernate:
+      ddl-auto: none
+      
+  config:
+    import: optional:configserver:http://localhost:8086
+    
+  profiles:
+    active: prod    
+    
+    
+# enables Spring Boot Actuator end points
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"        
+     
+
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka

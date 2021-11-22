@@ -1,0 +1,26 @@
+server:  port: 8080
+  
+spring: 
+  application:
+     name : student-service
+
+  datasource: 
+    url : ${datasource.url}
+    username : ${datasource.username}
+    password : ${datasource.password}
+  jpa: 
+    properties:
+      hibernate:
+        dialect: ${datasource.dialect}
+        connection: 
+          characterEncoding: UTF-8
+          CharSet: UTF-8
+          useUnicode: true
+    show-sql: true 
+    hibernate:
+      ddl-auto: none          
+  config:    import: optional:configserver:http://localhost:8086       # enables Spring Boot Actuator end pointsmanagement:  endpoints:    web:      exposure:        include: "*"                  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka      resilience4j:  circuitbreaker:    configs:       shared:        register-health-indicator: true         sliding-window-type: COUNT_BASED        sliding-window-size: 5        failure-rate-threshold: 40        slow-call-rate-threshold: 40        permitted-number-of-calls-in-half-open-state: 1        max-wait-duration-in-half-open-state: 10s        wait-duration-in-open-state: 10s        slow-call-duration-threshold: 2s        writable-stack-trace-enabled: true        automatic-transition-from-open-to-half-open-enabled: true    instances:      example:        base-config: shared                                                        
