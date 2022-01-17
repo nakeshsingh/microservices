@@ -1,5 +1,5 @@
 # This project is based on Microservice architecture.
-### Technoly Used
+### Technology Used
 Spring Boot and Spring Cloud
 
 Language JAVA
