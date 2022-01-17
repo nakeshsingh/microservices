@@ -31,11 +31,11 @@ Services
 4. Make sure you have created correct databse and given proper role to user as per shown in video.
 ## Runing project
   1. First of all run Eureka registry server (After successful running you can see Eureka dashboard at URL http://localhost:8083/ )
-  2. Then Spring Gateway
-  3. Then Config server
-  4. Then student microservice and 
-  5. Then course microservice 
-  6. After all services running successful you should be able to see all above services registered on Eureka at URL : http://localhost:8083/
+  2. Then start Spring Gateway
+  3. Then start Config server
+  4. Then start student microservice and 
+  5. Then start course microservice 
+  6. After all services running successfully you should be able to see all above services registered on Eureka at URL : http://localhost:8083/
   7. Then Open Postman and hit Rest API endpoints discussed in Video.
 
 Thanks.
